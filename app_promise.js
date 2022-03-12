@@ -39,25 +39,36 @@ const axios = require('axios');
     var accountSid = 'AC5e4b48dbd5d0885a1b5a35146861a235'; // Your Account SID from www.twilio.com/console
     var authToken = '7b675698a583498f3ce86e612aed5034';   // Your Auth Token from www.twilio.com/console
 
-    var twilio = require('twilio');
-    var client = new twilio(accountSid, authToken);
+//     var twilio = require('twilio');
+//     var client = new twilio(accountSid, authToken);
 
-    client.messages.create({
-        body: `Location: ${address}.  Temperature:  ${temperature}. Feels like: ${apparentTemperature}.  Summary: ${summary}.  Precipitation Type: ${precipType}.   Probability: ${precipProbability}.   Humidity: ${humidity}.   Wind Speed: ${windSpeed}.`,
+//     client.messages.create({
+//         body: `Location: ${address}.  Temperature:  ${temperature}. Feels like: ${apparentTemperature}.  Summary: ${summary}.  Precipitation Type: ${precipType}.   Probability: ${precipProbability}.   Humidity: ${humidity}.   Wind Speed: ${windSpeed}.`,
 
-        to: '+917015386369',  // Text this number
-        from: '+32460208893' // From a valid Twilio number
-    })
-    .then((message) => console.log(message.sid));
-}).catch((e) => {
-   if (e.code === 'ENOTFOUND') {
-     console.log('Unable to connect to API servers.');
-   } else {
-     console.log(e.message);
-   }
- });
+//         to: '+917015386369',  // Text this number
+//         from: '+32460208893' // From a valid Twilio number
+//     })
+//     .then((message) => console.log(message.sid));
+// }).catch((e) => {
+//    if (e.code === 'ENOTFOUND') {
+//      console.log('Unable to connect to API servers.');
+//    } else {
+//      console.log(e.message);
+//    }
+//  });
  
-
+const accountSid = 'AC5e4b48dbd5d0885a1b5a35146861a235'; 
+const authToken = '[Redacted]'; 
+const client = require('twilio')(accountSid, authToken); 
+ 
+client.messages 
+      .create({ 
+         body: 'Currently weather at your location is : `Location: ${address}.  Temperature:  ${temperature}. Feels like: ${apparentTemperature}.  Summary: ${summary}.  Precipitation Type: ${precipType}.   Probability: ${precipProbability}.   Humidity: ${humidity}.   Wind Speed: ${windSpeed}.`', 
+         from: 'whatsapp:+14155238886',       
+         to: 'whatsapp:+919876033873' 
+       }) 
+      .then(message => console.log(message.sid)) 
+      .done();
 
 
  // var accountSid = 'AC5e4b48dbd5d0885a1b5a35146861a235'; // Your Account SID from www.twilio.com/console
