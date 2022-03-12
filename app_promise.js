@@ -36,8 +36,8 @@ const axios = require('axios');
    var humidity = response.data.currently.humidity;
    var windSpeed = response.data.currently.windSpeed;
    console.log(`Temperature:  ${temperature}. Feels like: ${apparentTemperature}.  Summary: ${summary}.  Precipitation Type: ${precipType}.   Probability: ${precipProbability}.   Humidity: ${humidity}.   Wind Speed: ${windSpeed}.`);
-    var accountSid = 'AC5e4b48dbd5d0885a1b5a35146861a235'; // Your Account SID from www.twilio.com/console
-    var authToken = '7b675698a583498f3ce86e612aed5034';   // Your Auth Token from www.twilio.com/console
+//    var accountSid = 'AC5e4b48dbd5d0885a1b5a35146861a235'; // Your Account SID from www.twilio.com/console
+//    var authToken = '7b675698a583498f3ce86e612aed5034';   // Your Auth Token from www.twilio.com/console
 
 //     var twilio = require('twilio');
 //     var client = new twilio(accountSid, authToken);
@@ -65,7 +65,7 @@ client.messages
       .create({ 
          body: 'Currently weather at your location is : `Location: ${address}.  Temperature:  ${temperature}. Feels like: ${apparentTemperature}.  Summary: ${summary}.  Precipitation Type: ${precipType}.   Probability: ${precipProbability}.   Humidity: ${humidity}.   Wind Speed: ${windSpeed}.`', 
          from: 'whatsapp:+14155238886',       
-         to: 'whatsapp:+919876033873' 
+         to: 'whatsapp:+919xxxxxxxx' 
        }) 
       .then(message => console.log(message.sid)) 
       .done();
